@@ -13,8 +13,9 @@ app.use(cors());
 
 app.use('/posts', postRoutes);
 
-const CONNECTION_URL = "mongodb+srv://julio:Teste123@cluster0.nzojq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
-const PORT = process.env.PORT|| 5001;
+CONNECTION_URL = process.env.CONNECTION_URL;
+console.log(CONNECTION_URL);
+const PORT = process.env.PORT || 5001;
 
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => app.listen(PORT, () => console.log(`Server Running on Port: http://localhost:${PORT}`)))
